@@ -1,0 +1,21 @@
+[package]
+name = "fhewasmer"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+llvm = ["wasmer-compiler-llvm"]
+cranelift = ["wasmer-compiler-cranelift"]
+singlepass = ["wasmer-compiler-singlepass"]
+compile = ["wasmer-compiler", "wasmer/compiler"]
+precompiled = []
+default = ["cranelift"]
+
+[dependencies]
+wasmer-compiler-cranelift = { version = "4.0.0", optional = true }
+wasmer-compiler-llvm = { version = "4.0.0", optional = true }
+wasmer-compiler-singlepass = { version = "4.0.0", optional = true }
+
+wasmer = { version = "4.0.0" }
+wasmer-compiler = { version = "4.0.0", optional = true }
+anyhow = "1.0"
